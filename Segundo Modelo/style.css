@@ -1,15 +1,6 @@
 /* === ROOT VARIABLES & BASIC RESET - DARK THEME === */
 :root {
-
-    --primary-bg-solid: #1A1A1D;      /* Cor sólida que será usada como fallback ou para seções */
-    --secondary-bg: #2C2C31;
-    /* ... (restante das suas variáveis) ... */
-
-    --primary-text: #E0E0E0;
-    --headings-text: #FFFFFF;
-
-    
-    /* Paleta Escura */
+    /* Paleta Escura Consolidada */
     --primary-bg: #1A1A1D;          /* Fundo principal muito escuro, quase preto */
     --secondary-bg: #2C2C31;        /* Fundo para seções/cards, um pouco mais claro */
     --tertiary-bg: #4A4A52;         /* Um cinza escuro para elementos de interface ou bordas */
@@ -18,25 +9,27 @@
     --secondary-text: #B0B0B0;      /* Texto secundário/muted (cinza mais escuro) */
     --headings-text: #FFFFFF;       /* Texto dos cabeçalhos (branco) */
 
-    --accent-primary: #61DAFB;      /* Azul ciano vibrante para destaque (estilo React/tech) */
+    --accent-primary: #61DAFB;      /* Azul ciano vibrante para destaque */
     --accent-primary-darker: #4FA8C4;/* Tom mais escuro do azul para hover */
 
-    --accent-secondary: #BB86FC;    /* Roxo/Lilás para outro destaque (Material Design Dark Theme) */
+    --accent-secondary: #BB86FC;    /* Roxo/Lilás para outro destaque */
     --accent-secondary-darker: #9E6EDD;
 
     --border-color: #55555C;        /* Cor para bordas sutis */
     --focus-ring-color: rgba(97, 218, 251, 0.4); /* Anel de foco para o accent-primary */
 
-    /* Variáveis de Estrutura e Tipografia (podem permanecer as mesmas ou ajustar) */
-    --font-primary: 'Roboto', 'Open Sans', sans-serif;
-    --font-headings: 'Roboto', 'Open Sans', sans-serif;
+    /* Tipografia */
+    --font-primary: 'Poppins', sans-serif; /* Nova fonte principal */
+    --font-headings: 'Poppins', sans-serif; /* Nova fonte para cabeçalhos */
 
+    /* Estrutura e Espaçamento */
     --header-height: 70px;
     --section-padding-y: 80px;
     --container-padding-x: 20px;
+    --spacing-unit: 1rem; /* Unidade base para espaçamentos consistentes */
 
-    --border-radius: 6px; /* Bordas um pouco mais arredondadas podem ficar bem em temas escuros */
-    --box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra mais escura e sutil */
+    --border-radius: 6px;
+    --box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     --box-shadow-hover: 0 6px 16px rgba(0,0,0,0.4);
     --transition-speed: 0.3s;
 }
@@ -55,22 +48,19 @@ html {
 }
 
 body {
-
-    
-
     font-family: var(--font-primary);
     line-height: 1.7;
-    color: var(--primary-text); /* Texto principal claro */
-    background-color: var(--primary-bg); /* Fundo principal escuro */
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
     font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Melhora renderização da fonte */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    /* Para imagens com fundo claro, pode ser necessário um filtro ou borda */
-    /* filter: brightness(0.9) contrast(1.1); */
 }
 
 ul {
@@ -79,17 +69,23 @@ ul {
 
 a {
     text-decoration: none;
-    color: var(--accent-primary); /* Cor de link primária */
+    color: var(--accent-primary);
     transition: color var(--transition-speed) ease;
 }
 
-a:hover, a:focus {
+a:hover, a:focus-visible { /* Usar :focus-visible para melhor acessibilidade */
     color: var(--accent-primary-darker);
     outline: 2px solid var(--accent-primary-darker);
     outline-offset: 2px;
 }
-button:focus, input:focus, textarea:focus, a:focus {
-    outline: none; /* Será customizado abaixo */
+button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+/* Remover outline apenas se :focus-visible for suportado e estilizado */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 
@@ -102,9 +98,15 @@ button:focus, input:focus, textarea:focus, a:focus {
     padding-right: var(--container-padding-x);
 }
 
-/* === HEADER AND NAVIGATION === */
-header {
-    background-image: url('assets/background3.png');
+.text-center {
+    text-align: center;
+}
+
+/* === HEADER (.site-header) === */
+.site-header {
+    background-image: url('assets/background3.png'); /* SEU FUNDO ESPECÍFICO */
+    background-size: cover;
+    background-position: center;
     color: var(--headings-text);
     height: var(--header-height);
     position: fixed;
@@ -112,44 +114,45 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Sombra um pouco mais forte */
     display: flex;
     align-items: center;
 }
 
-nav.container {
+.header-container { /* Substitui nav.container */
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.logo {
-    font-size: clamp(1.5rem, 4vw, 1.8rem);
-    font-weight: bold;
-    color: var(--headings-text);
+.logo-link .logo-image { /* Antiga .logo */
+    height: calc(var(--header-height) * 0.65); /* Logo proporcional à altura do header */
+    width: auto;
 }
-.logo:hover, .logo:focus {
-    color: var(--accent-primary);
-    text-decoration: none;
+.logo-link:focus-visible { /* Remover outline padrão do link da logo se a imagem já indica foco */
     outline: none;
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+    border-radius: var(--border-radius);
 }
 
-nav ul {
+
+.main-navigation .nav-menu { /* Antiga nav ul */
     display: flex;
 }
 
-nav ul li {
-    margin-left: 25px;
+.main-navigation .nav-menu li { /* Antiga nav ul li */
+    margin-left: calc(var(--spacing-unit) * 1.5); /* 24px se spacing-unit for 16px */
 }
 
-nav ul li a {
+.main-navigation .nav-menu li a { /* Antiga nav ul li a */
     color: var(--headings-text);
     font-weight: 500;
     padding: 0.5rem 0.2rem;
     position: relative;
+    font-size: 0.95rem;
 }
-nav ul li a::after {
+.main-navigation .nav-menu li a::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -159,535 +162,682 @@ nav ul li a::after {
     background-color: var(--accent-primary);
     transition: width var(--transition-speed) ease;
 }
-nav ul li a:hover::after,
-nav ul li a:focus::after {
+.main-navigation .nav-menu li a:hover::after,
+.main-navigation .nav-menu li a:focus-visible::after {
     width: 100%;
 }
-nav ul li a:hover,
-nav ul li a:focus {
+.main-navigation .nav-menu li a:hover,
+.main-navigation .nav-menu li a:focus-visible {
     color: var(--accent-primary);
     text-decoration: none;
-    outline: none;
+    outline: none; /* O ::after e a cor já indicam foco */
 }
 
-
 /* Mobile Navigation Toggle */
-.nav-toggle {
+.menu-toggle { /* Antigo .nav-toggle */
     display: none;
     background: transparent;
     border: none;
     padding: 0.5rem;
     cursor: pointer;
     z-index: 1001;
+    color: var(--headings-text); /* Para o ícone herdar a cor */
 }
 
-.hamburger {
+.menu-toggle-icon { /* Antigo .hamburger - estilizar como ícone de hambúrguer */
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--headings-text);
+    background: currentColor; /* Usa a cor do .menu-toggle */
     position: relative;
     transition: transform var(--transition-speed) ease;
 }
-.hamburger::before,
-.hamburger::after {
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
     content: '';
     display: block;
     width: 100%;
     height: 100%;
-    background: var(--headings-text);
+    background: currentColor;
     position: absolute;
     left: 0;
     transition: transform var(--transition-speed) ease, top var(--transition-speed) ease, bottom var(--transition-speed) ease;
 }
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
+.menu-toggle-icon::before { top: -8px; }
+.menu-toggle-icon::after { bottom: -8px; }
 
-.nav-toggle[aria-expanded="true"] .hamburger {
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon {
     transform: rotate(45deg);
-    background: var(--accent-primary); /* Muda cor do X */
+    background: var(--accent-primary);
 }
-.nav-toggle[aria-expanded="true"] .hamburger::before {
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon::before {
     top: 0;
     transform: rotate(90deg);
     background: var(--accent-primary);
 }
-.nav-toggle[aria-expanded="true"] .hamburger::after {
+.menu-toggle[aria-expanded="true"] .menu-toggle-icon::after {
     bottom: 0;
     transform: rotate(90deg);
-    opacity: 0;
+    opacity: 0; /* Esconde a barra do meio no X */
     background: var(--accent-primary);
 }
 
 
-/* === HERO SECTION === */
-.hero {
-     /* --- FUNDO ESPECÍFICO --- */
-    /* Substitua 'CAMINHO_PARA_SUA_IMAGEM.jpg' pelo caminho real da sua imagem */
-    background-image: url('assets/background3.png');
-
-    /* Cor de fundo de fallback: será exibida se a imagem não carregar
-       ou antes dela carregar. Também é útil se sua imagem tiver transparências. */
-    background-color: var(--primary-bg-solid);
-
-    /* Ajusta o tamanho da imagem de fundo:
-       'cover': Redimensiona a imagem para cobrir todo o container, mantendo a proporção.
-                Pode cortar partes da imagem.
-       'contain': Redimensiona a imagem para que ela caiba completamente no container,
-                  mantendo a proporção. Pode deixar espaços vazios.
-       'auto': Tamanho original da imagem.
-       Você também pode usar valores como '100% 100%' ou dimensões em px.
-    */
+/* === HERO SECTION (.hero-section) === */
+.hero-section { /* Antigo .hero */
+    position: relative; /* Para o .hero-background-shape */
+    background-image: url('assets/background3.png'); /* SEU FUNDO ESPECÍFICO */
+    background-color: var(--primary-bg); /* Fallback */
     background-size: cover;
-
-    /* Define se a imagem de fundo se repete:
-       'no-repeat': A imagem não se repete.
-       'repeat': A imagem se repete horizontal e verticalmente (padrão).
-       'repeat-x': Repete apenas horizontalmente.
-       'repeat-y': Repete apenas verticalmente.
-    */
     background-repeat: no-repeat;
-
-    /* Define a posição inicial da imagem de fundo.
-       Valores comuns: 'center center', 'top left', 'bottom right', etc.
-       Ou use valores em px ou %.
-    */
     background-position: center center;
-
-    /* Define se a imagem de fundo rola com o conteúdo ou fica fixa:
-       'scroll': A imagem rola com a página (padrão).
-       'fixed': A imagem fica fixa no viewport, criando um efeito parallax
-                quando o conteúdo rola sobre ela.
-    */
     background-attachment: fixed;
-    /* --- FIM DO FUNDO ESPECÍFICO --- */
-
-    /* Para o overlay, um gradiente mais sutil ou uma cor sólida escura translúcida */
-    /*background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://via.placeholder.com/1920x1080/333333/111111?text=Dark+Hero+Image') no-repeat center center/cover; /* Substitua pela sua imagem escura ou com filtro */
     color: var(--headings-text);
-    text-align: center;
-    padding: calc(var(--header-height) + 60px) var(--container-padding-x) 60px;
-    min-height: 70vh;
+    padding: calc(var(--header-height) + var(--section-padding-y) * 0.75) var(--container-padding-x) calc(var(--section-padding-y) * 0.75);
+    min-height: 80vh; /* Altura um pouco maior */
+    display: flex; /* Para alinhar .hero-content */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+    text-align: left; /* Ajuste para o layout com imagem à direita */
+    overflow: hidden; /* Para o background-shape não vazar se for complexo */
+}
+
+.hero-background-shape { /* Elemento decorativo */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Exemplo: background: radial-gradient(circle at top left, rgba(var(--accent-primary-rgb), 0.1), transparent 70%); */
+    /* opacity: 0.5; */
+    z-index: 1;
+}
+
+.hero-content { /* Antigo .hero-content */
+    position: relative; /* Acima do background-shape */
+    z-index: 2;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Para texto à esquerda e imagem à direita */
+    gap: calc(var(--spacing-unit) * 3); /* Espaço entre texto e imagem */
+    width: 100%; /* Para ocupar o espaço do container */
+}
+
+.hero-text {
+    flex: 1 1 55%; /* Permite que o texto ocupe mais espaço */
+    max-width: 600px;
+}
+
+.hero-kicker {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+}
+
+.hero-section h1#hero-title { /* Antigo .hero h1 */
+    font-family: var(--font-headings);
+    font-size: clamp(2.4rem, 5vw, 3.5rem); /* Levemente ajustado */
+    margin-bottom: calc(var(--spacing-unit) * 1.25);
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--headings-text);
+}
+
+.hero-subtitle { /* Antigo .hero p */
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    color: var(--primary-text);
+    max-width: 550px; /* Para não ficar muito largo */
+    line-height: 1.6;
+}
+
+.hero-image-container {
+    flex: 1 1 40%;
+    max-width: 450px; /* Limita o tamanho da imagem */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.hero-content {
-    max-width: 800px;
+.hero-image {
+    width: 100%;
+    object-fit: contain;
 }
 
-.hero h1 {
-    font-family: var(--font-headings);
-    font-size: clamp(2.2rem, 6vw, 3.8rem);
-    margin-bottom: 25px;
-    line-height: 1.2;
-    font-weight: 700;
-    color: var(--headings-text); /* Garante branco para o H1 */
-}
-
-.hero p {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    margin-bottom: 35px;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--primary-text); /* Cinza claro para o parágrafo */
-}
-
-.btn {
+/* Botões CTA */
+.cta-button { /* Antigo .btn */
     display: inline-block;
-    background-color: var(--accent-primary);
-    color: #000000; /* Texto escuro para alto contraste com accent-primary claro */
-    padding: 14px 30px;
+    padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 1.8); /* 14px 30px */
     text-decoration: none;
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    font-weight: bold; /* Mais destaque */
+    font-weight: 600; /* Ajustado de bold */
     border: 2px solid transparent;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
-
-.btn:hover,
-.btn:focus {
+.cta-button.primary-cta {
+    background-color: var(--accent-primary);
+    color: #000000; /* Texto escuro para contraste */
+}
+.cta-button.primary-cta:hover,
+.cta-button.primary-cta:focus-visible {
     background-color: var(--accent-primary-darker);
     color: #000000;
-    text-decoration: none;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra mais visível em botões claros */
-    outline: 2px solid var(--accent-primary-darker);
-    outline-offset: 2px;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--accent-primary); /* Link de destaque */
-    border: 2px solid var(--accent-primary);
-    margin-left: 15px;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: var(--accent-primary);
-    color: #000000;
-    border-color: var(--accent-primary);
-}
-
-
-/* === SECTIONS (General Styling) === */
-.section {
-    padding-top: var(--section-padding-y);
-    padding-bottom: var(--section-padding-y);
-    /* A cor de fundo padrão será --primary-bg (body) */
-}
-
-.section-alt-bg {
-    background-color: var(--secondary-bg); /* Fundo alternativo um pouco mais claro */
-    border-top: 1px solid var(--border-color); /* Linha sutil de separação */
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section h2 {
-    font-family: var(--font-headings);
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    margin-bottom: 50px;
-    position: relative;
-    color: var(--headings-text); /* Cabeçalhos brancos */
-    text-align: center;
-    font-weight: 700;
-}
-
-.section h2::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 4px;
-    background-color: var(--accent-primary); /* Linha de destaque azul */
-    margin: 15px auto 0;
-}
-
-/* === SERVICES SECTION === */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.service-item {
-    background-color: var(--secondary-bg); /* Cards com fundo secundário */
-    padding: 35px 30px;
-    border-radius: var(--border-radius);
+    transform: translateY(-2px);
     box-shadow: var(--box-shadow);
-    text-align: left;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    border: 1px solid var(--border-color); /* Borda sutil */
-}
-
-.service-item:hover,
-.service-item:focus-within {
-    transform: translateY(-10px);
-    box-shadow: var(--box-shadow-hover);
-    border-color: var(--accent-primary); /* Borda de destaque no hover */
-}
-
-.service-item h3 {
-    margin-top: 0;
-    font-size: 1.6rem;
-    color: var(--headings-text); /* H3 branco */
-    margin-bottom: 15px;
-    font-family: var(--font-headings);
-}
-
-.service-item p {
-    font-size: 1rem;
-    color: var(--primary-text); /* Texto do card cinza claro */
-}
-
-/* === PORTFOLIO SECTION === */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.portfolio-item {
-    background-color: var(--secondary-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    border: 1px solid var(--border-color);
-}
-.portfolio-item:hover,
-.portfolio-item:focus-within {
-    transform: translateY(-8px);
-    box-shadow: var(--box-shadow-hover);
-    border-color: var(--accent-secondary); /* Usando cor de destaque secundária aqui */
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    /* filter: grayscale(30%) brightness(0.9); Opcional para integrar melhor imagens claras */
-}
-
-.portfolio-info {
-    padding: 25px 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-info h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-    color: var(--headings-text);
-    font-family: var(--font-headings);
-}
-
-.portfolio-info p {
-    font-size: 0.95rem;
-    color: var(--primary-text);
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.portfolio-info a {
-    display: inline-block;
-    margin-top: auto;
-    color: var(--accent-secondary); /* Link com accent secundário */
-    font-weight: bold;
-    align-self: flex-start;
-}
-.portfolio-info a:hover,
-.portfolio-info a:focus {
-    text-decoration: underline;
-    color: var(--accent-secondary-darker);
-    outline-color: var(--accent-secondary-darker);
-}
-
-/* === ABOUT US SECTION === */
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-    text-align: left;
-}
-
-.about-content .text {
-    flex: 1;
-    min-width: 300px;
-}
-.about-content .text p {
-    margin-bottom: 20px;
-    color: var(--primary-text);
-}
-.about-content .text p strong {
-    color: var(--headings-text); /* Destaque em branco */
-}
-
-.about-content img {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    border: 1px solid var(--border-color);
-}
-
-/* === CONTACT SECTION === */
-.contact-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: var(--secondary-bg); /* Fundo do formulário */
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: left;
-    border: 1px solid var(--border-color);
-}
-.contact-form-container > p {
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    text-align: center;
-    color: var(--primary-text);
-}
-
-.contact-form-container form div {
-    margin-bottom: 20px;
-}
-
-.contact-form-container label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--headings-text); /* Label em branco */
-}
-
-.contact-form-container input[type="text"],
-.contact-form-container input[type="email"],
-.contact-form-container textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--tertiary-bg); /* Borda mais escura para inputs */
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-family: inherit;
-    background-color: var(--primary-bg); /* Fundo do input bem escuro */
-    color: var(--primary-text); /* Texto do input claro */
-    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-.contact-form-container input[type="text"]::placeholder,
-.contact-form-container input[type="email"]::placeholder,
-.contact-form-container textarea::placeholder {
-    color: var(--secondary-text); /* Placeholder mais sutil */
-}
-
-.contact-form-container input[type="text"]:focus,
-.contact-form-container input[type="email"]:focus,
-.contact-form-container textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px var(--focus-ring-color);
-}
-
-.contact-form-container textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.contact-form-container button[type="submit"].btn {
-    width: 100%;
-    padding: 15px 30px;
-    /* Estilo .btn já aplicado */
-}
-
-
-/* === FOOTER === */
-footer {
-    background-color: var(--secondary-bg); /* Footer com fundo secundário */
-    color: var(--primary-text);
-    text-align: center;
-    padding: 40px var(--container-padding-x);
-    margin-top: var(--section-padding-y);
-    border-top: 1px solid var(--border-color);
-}
-
-footer p {
-    margin: 0 0 10px 0;
-    font-size: 0.9rem;
-}
-footer a {
-    color: var(--accent-primary); /* Links do footer com accent */
-}
-footer a:hover, footer a:focus {
-    color: var(--accent-primary-darker);
-    text-decoration: underline;
     outline-color: var(--accent-primary-darker);
 }
 
+.cta-button.secondary-cta { /* Antigo .btn-secondary */
+    background-color: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    margin-left: calc(var(--spacing-unit) * 1); /* 15px */
+}
+.cta-button.secondary-cta:hover,
+.cta-button.secondary-cta:focus-visible {
+    background-color: var(--accent-primary);
+    color: #000000;
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    outline-color: var(--accent-primary);
+}
+.hero-text .cta-button { /* Margem entre botões no hero se houver mais de um */
+    margin-right: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit); /* Para quebra de linha */
+}
+.hero-text .cta-button:last-child {
+    margin-right: 0;
+}
+
+.cta-button.cta-large {
+    padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.5);
+    font-size: 1rem;
+}
+
+
+/* === MAIN (.site-main) e SECTIONS (.content-section) === */
+.site-main {
+    /* Pode adicionar padding aqui se necessário, mas as seções já têm */
+}
+
+.content-section { /* Antigo .section */
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+}
+
+.content-section.alt-background { /* Antigo .section-alt-bg */
+    background-color: var(--secondary-bg);
+    /* border-top: 1px solid var(--border-color); */ /* Opcional */
+    /* border-bottom: 1px solid var(--border-color); */ /* Opcional */
+}
+
+.section-header { /* Para centralizar kicker, título e intro da seção */
+    margin-bottom: calc(var(--spacing-unit) * 3); /* 48px */
+}
+
+.section-kicker {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-secondary); /* Usando o accent secundário para kickers */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.content-section .section-title { /* Antigo .section h2 */
+    font-family: var(--font-headings);
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Ajustado */
+    margin-bottom: calc(var(--spacing-unit) * 1.25); /* 20px */
+    color: var(--headings-text);
+    font-weight: 700;
+    line-height: 1.3;
+}
+.content-section .section-title::after { /* Linha abaixo do título da seção */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-secondary); /* Usando accent secundário */
+    margin: calc(var(--spacing-unit) * 0.75) auto 0; /* Se o título for centralizado */
+}
+.section-grid .section-title::after,
+.section-text-content .section-title::after { /* Para títulos alinhados à esquerda */
+    margin-left: 0;
+}
+
+
+.section-intro { /* Parágrafo introdutório da seção */
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Layout de Grid para Seção Sobre */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: calc(var(--spacing-unit) * 3);
+    align-items: center;
+}
+.section-text-content p {
+    margin-bottom: var(--spacing-unit);
+    color: var(--primary-text);
+}
+.section-visual-content img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* === SERVICES SECTION (.services-grid, .service-card) === */
+.services-grid { /* Antigo .services-grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); /* Mínimo um pouco menor */
+    gap: calc(var(--spacing-unit) * 1.8); /* 30px */
+}
+
+.service-card { /* Antigo .service-item */
+    background-color: var(--secondary-bg);
+    padding: calc(var(--spacing-unit) * 1.8); /* 30px */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center; /* Para centralizar ícone e texto */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
+}
+
+.service-card:hover,
+.service-card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--accent-primary);
+}
+
+.service-icon {
+    height: 50px; /* Tamanho do ícone */
+    margin-bottom: var(--spacing-unit);
+    /* Para SVGs, a cor pode ser controlada via fill: currentColor e color no pai, ou no próprio SVG */
+    color: var(--accent-primary); 
+}
+/* Se os ícones SVG forem inline, você pode estilizá-los: */
+.service-icon svg {
+    fill: var(--accent-primary);
+}
+
+
+.service-card h3 {
+    margin-top: 0;
+    font-size: 1.3rem; /* Ajustado */
+    color: var(--headings-text);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    font-family: var(--font-headings);
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.95rem; /* Ajustado */
+    color: var(--primary-text);
+    line-height: 1.6;
+}
+
+/* === PORTFOLIO SECTION (.portfolio-grid, .portfolio-item) === */
+.portfolio-grid { /* Antigo .portfolio-grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: calc(var(--spacing-unit) * 1.8);
+}
+
+.portfolio-item { /* Antigo .portfolio-item */
+    position: relative; /* Para o .portfolio-overlay */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Para o overlay não vazar e a imagem respeitar o border-radius */
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.portfolio-item:hover,
+.portfolio-item:focus-within { /* Quando o link dentro tem foco */
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+.portfolio-item:focus-within .portfolio-overlay { /* Mostrar overlay no foco também */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.portfolio-image {
+    width: 100%;
+    height: 250px; /* Altura fixa para os cards de portfólio */
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-speed) ease;
+}
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.05); /* Efeito de zoom na imagem */
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0; /* Alinhado à base */
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(18, 18, 29, 0.95) 0%, rgba(18, 18, 29, 0.7) 60%, transparent 100%);
+    color: var(--headings-text);
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 1.25); /* 32px 20px */
+    text-align: left;
+    opacity: 0; /* Escondido por padrão */
+    visibility: hidden;
+    transform: translateY(20px); /* Efeito de subida */
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: 1.25rem;
+    color: var(--headings-text);
+    font-weight: 600;
+}
+
+.portfolio-overlay p {
+    font-size: 0.85rem;
+    color: var(--primary-text);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    line-height: 1.5;
+}
+
+.portfolio-cta {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.portfolio-cta:hover {
+    text-decoration: underline;
+}
+
+/* === CONTACT / THEMED SECTION (.themed-section) === */
+.themed-section {
+    background-color: var(--accent-primary); /* Cor de destaque principal */
+    color: #000000; /* Texto escuro para contraste */
+    /* Se usar uma imagem de fundo, ajustar: */
+    /* background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('path/to/image.jpg'); */
+    /* color: var(--headings-text); */
+}
+.themed-section .section-kicker,
+.themed-section .section-title {
+    color: inherit; /* Herda a cor escura do .themed-section */
+}
+.themed-section .section-title::after {
+    background-color: rgba(0,0,0,0.5); /* Linha mais escura */
+}
+.themed-section-caption {
+    color: rgba(0,0,0,0.8); /* Parágrafo com cor escura mas levemente mais clara que preto puro */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+.themed-section .cta-button.primary-cta {
+    background-color: var(--headings-text); /* Botão branco */
+    color: var(--primary-bg); /* Texto escuro do botão */
+    border: 2px solid var(--primary-bg);
+}
+.themed-section .cta-button.primary-cta:hover,
+.themed-section .cta-button.primary-cta:focus-visible {
+    background-color: var(--primary-bg);
+    color: var(--headings-text);
+    border-color: var(--headings-text);
+    outline-color: var(--primary-bg);
+}
+
+
+/* === FOOTER (.site-footer) === */
+.site-footer {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    padding-top: var(--section-padding-y);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: calc(var(--spacing-unit) * 2.5); /* 40px */
+    padding-bottom: calc(var(--section-padding-y) * 0.75);
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    color: var(--headings-text);
+    margin-bottom: var(--spacing-unit);
+    font-weight: 600;
+}
+
+.footer-logo {
+    max-height: 40px; /* Ajuste conforme necessário */
+    margin-bottom: var(--spacing-unit);
+}
+.footer-about p {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    line-height: 1.6;
+}
+
+.footer-navigation ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+.footer-navigation ul li a {
+    color: var(--primary-text);
+    font-size: 0.95rem;
+}
+.footer-navigation ul li a:hover,
+.footer-navigation ul li a:focus-visible {
+    color: var(--accent-primary);
+    outline-color: var(--accent-primary);
+}
+
+.footer-contact-info p {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: 0.95rem;
+}
+.footer-contact-info p a {
+    color: var(--primary-text);
+}
+.footer-contact-info p a:hover,
+.footer-contact-info p a:focus-visible {
+    color: var(--accent-primary);
+    outline-color: var(--accent-primary);
+}
+
+.social-icons {
+    margin-top: var(--spacing-unit);
+    display: flex;
+    gap: var(--spacing-unit); /* 16px */
+}
+.social-icons a img {
+    height: 24px; /* Tamanho dos ícones sociais */
+    width: 24px;
+    /* Para SVGs, pode controlar a cor com CSS se forem inline ou via filter */
+    /* filter: invert(75%) sepia(10%) saturate(500%) hue-rotate(150deg) brightness(90%) contrast(90%); */
+}
+.social-icons a:hover img,
+.social-icons a:focus-visible img {
+    filter: brightness(1.2) drop-shadow(0 0 3px var(--accent-primary)); /* Exemplo de efeito hover */
+}
+.social-icons a:focus-visible {
+    outline: none; /* A imagem já muda com o filtro */
+    border-radius: var(--border-radius); /* Para o box-shadow do :focus-visible geral */
+}
+
+
+.footer-bottom {
+    background-color: var(--primary-bg); /* Um pouco mais escuro para distinção */
+    padding: calc(var(--spacing-unit) * 1.25) 0; /* 20px */
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    border-top: 1px solid var(--border-color);
+}
+.footer-bottom p {
+    margin: 0;
+}
+
+
 /* === RESPONSIVE STYLES === */
-@media (max-width: 768px) {
+@media (max-width: 992px) { /* Tablets e telas menores */
+    .hero-content {
+        flex-direction: column; /* Empilha texto e imagem */
+        text-align: center; /* Centraliza o texto */
+    }
+    .hero-text {
+        flex-basis: auto; /* Reseta o flex-basis */
+        max-width: 700px; /* Permite que o texto fique mais largo */
+        text-align: center;
+    }
+    .hero-section h1#hero-title, .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-image-container {
+        flex-basis: auto;
+        margin-top: calc(var(--spacing-unit) * 2);
+        max-width: 400px; /* Imagem um pouco menor */
+    }
+}
+
+
+@media (max-width: 768px) { /* Mobile */
     :root {
         --header-height: 60px;
         --section-padding-y: 60px;
     }
 
-    .nav-toggle {
+    .menu-toggle {
         display: block;
     }
 
-    nav ul {
+    .main-navigation .nav-menu {
         position: fixed;
         inset: var(--header-height) 0 0 0;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        padding: 40px 20px;
-        background-color: var(--secondary-bg); /* Fundo do menu mobile */
+        justify-content: flex-start; /* Alinha itens no topo do menu */
+        padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+        background-color: var(--secondary-bg);
         transform: translateX(100%);
         transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
         overflow-y: auto;
-        border-left: 1px solid var(--border-color); /* Borda para separar do conteúdo */
+        border-left: 1px solid var(--border-color);
     }
 
-    nav ul[data-visible="true"] {
+    .main-navigation .nav-menu[data-visible="true"] { /* Para JS controlar visibilidade */
         transform: translateX(0);
     }
 
-    nav ul li {
+    .main-navigation .nav-menu li {
         margin-left: 0;
         width: 100%;
         text-align: center;
     }
 
-    nav ul li a {
+    .main-navigation .nav-menu li a {
         display: block;
-        padding: 18px 15px;
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.9); /* 16px 15px */
         font-size: 1.1rem;
         width: 100%;
+        border-bottom: 1px solid var(--tertiary-bg);
     }
-    nav ul li a::after {
-        display: none;
+    .main-navigation .nav-menu li:last-child a {
+        border-bottom: none;
+    }
+    .main-navigation .nav-menu li a::after {
+        display: none; /* Remove efeito de sublinhado no mobile menu */
     }
 
 
-    .hero {
-        min-height: auto;
+    .hero-section {
+        min-height: auto; /* Altura dinâmica */
         padding-top: calc(var(--header-height) + 40px);
         padding-bottom: 40px;
     }
-
-    .hero h1 {
+    .hero-section h1#hero-title {
         font-size: clamp(1.8rem, 7vw, 2.5rem);
     }
-    .hero p {
+    .hero-subtitle {
         font-size: clamp(0.9rem, 4vw, 1.1rem);
     }
 
-    .hero .btn {
+    .hero-text .cta-button { /* Botões do Hero no mobile */
         display: block;
-        margin: 0 auto 15px auto;
+        margin: 0 auto var(--spacing-unit) auto;
         width: 90%;
         max-width: 300px;
     }
-    .hero .btn-secondary {
+    .hero-text .cta-button.secondary-cta {
         margin-left: auto;
     }
 
-    .section h2 {
-        font-size: clamp(1.8rem, 6vw, 2.4rem);
-        margin-bottom: 40px;
+    .content-section .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem); /* Títulos de seção menores */
     }
 
-    .about-content {
-        flex-direction: column;
+    .section-grid {
+        grid-template-columns: 1fr; /* Empilha colunas */
+        text-align: center; /* Centraliza conteúdo de texto */
+    }
+    .section-grid .section-title::after { /* Centraliza a linha abaixo do título */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section-visual-content {
+        margin-top: calc(var(--spacing-unit) * 2);
+    }
+    .section-visual-content img {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .footer-layout {
+        grid-template-columns: 1fr; /* Empilha colunas do footer */
         text-align: center;
     }
-    .about-content .text {
-        text-align: left; /* Mantém texto justificado */
+    .footer-column {
+        margin-bottom: calc(var(--spacing-unit) * 1.5);
     }
-    .about-content img {
-        max-width: 90%;
-        margin-top: 30px;
+    .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
     }
-
-    .contact-form-container {
-        padding: 30px 20px;
+    .social-icons {
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    .btn, .contact-form-container button[type="submit"].btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+    .cta-button, .themed-section .cta-button.primary-cta {
+        padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.25); /* 12px 20px */
+        font-size: 0.85rem;
+    }
+    .cta-button.cta-large {
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.8);
+        font-size: 0.95rem;
     }
 }
