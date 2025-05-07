@@ -1,0 +1,195 @@
+html{
+	font-size: 14px;
+	font-family: Roboto, Arial, "sans-serif";
+}
+
+body{
+	text-align:center;
+	
+	text-align: justify;
+	background-image: url("assets/background3.png"); 
+	background-size: cover;
+	color:white;
+}
+
+fieldset {
+	background-color: black;
+	color: white;
+	text-align:center;
+	font-size: 16px;
+	margin-top: 8px;
+	transition: 0.8;
+
+	
+	
+}
+legend{
+	font-size: 19px;
+	font-weight: bold;
+	border: 1px solid white;
+}
+.titulo {
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.titulo p{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+.titulo h2{
+	text-align: center;
+	font-size: 30px;
+	color: red;
+
+}
+
+input {
+	font-weight: bold;
+	transition: 0.8;
+	
+	
+}
+
+.enre:hover {
+	opacity: 0.7;
+	size: 10px;
+}
+
+
+
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+  }
+  
+  .sidenav a {
+	padding: 8px 8px 8px 20px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+	color: #ff0000;
+  }
+  
+  .sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+  }
+
+
+
+
+  ul {
+	display: flex;
+	justify-content: left;
+	list-style-type: none;
+	align-items: center;
+	color: white;
+
+}
+
+li {
+	margin-left: 13px;
+}
+
+li a:hover {
+	color: red;
+	text-decoration: none;
+	transition: 0.1s;
+}
+
+.submenus {
+	padding-top: 16px;
+	font-size: 17px;
+	color: white;
+	margin-bottom: 6px;
+	align-items: center;
+	text-decoration: none;
+}
+
+
+#logomenucaps {
+	margin-left: -20px;
+	margin-top: 4px;
+
+}
+
+#menu_lateral {
+	margin-top: 4px;
+	margin-bottom: -5px;
+	margin-right: 32px;
+	margin-left: 22px;
+}
+
+.redes_sociais{
+	padding-left:10px;
+	padding-right: 10px;
+	text-align: center;
+
+}
+
+.redes_sociais a:hover{
+	opacity:0.7;
+}
+@media screen and (max-width: 600px) {
+	.submenus a {
+		display: 
+
+	nav {
+		width: 0px;
+		height: 0px;
+	}
+
+	nav p {
+		display: none;
+	}
+
+	aside {
+		width: 0px;
+		height: 0px;
+	}
+
+	aside p {
+		display: none;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	#menu_lateral {
+		width: 90px;
+	}
+	fieldset{
+		text-align: left;
+		
+	}
+}
+

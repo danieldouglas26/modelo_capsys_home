@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="pt-br">
+   <head>
+	<title>Fale conosco</title>
+	<link rel="icon" type="image/x-icon" href="icon.ico">
+	<meta charset="utf-8"/>
+	<script src="javascript.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="sugestaoteste.css" />
+   </head>
+   <body>
+	<ul class="menu">
+		<span id="logomenucaps" style="font-size:30px;cursor:pointer" onclick="openNav()"><img src="assets/menu linhas.png" alt="logo" width="30"></span>
+		<a id="menu_lateral" href="index.html"><img src="assets/caps inspirador2.png" alt="logo" width="75"></a>
+		<li class="submenus">
+			<a class="submenus" href="Quem_Somos.html" >Quem somos</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="Legislação.html" >Legislação</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="Respeito.html" >Respeito</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="formulario.html" >Contato</a>
+		</li>
+	<div  id="mySidenav" class="sidenav">	
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<li class="submenus">
+			<a class="submenus" href="Quem_Somos.html" >Quem somos</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="Legislação.html" >Legislação</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="Respeito.html" >Respeito</a>
+		</li>
+		<li class="submenus">
+			<a class="submenus" href="formulario.html" >Contato</a>
+		</li>
+	</div>
+	</ul>
+	<div class="titulo">
+	<h2>Dúvidas ou Sugestões? Fale conosco!</h2>
+	<p>Para podemos te ajudar só precisamos que você nos forneça os dados mencionando abaixo que assim que possivel, entraremos em contato!</p>
+	</div>
+	<div class="formulario">
+	  <form novalidate="1" action="dados.php" method="post">
+	    <fieldset>
+		    <legend>Dados</legend>			  
+			  
+			   <input type="text" minlenght="3" id="nome" name="nome"placeholder="NOME*" required/> </br>
+			   <input type="e-mail" required placeholder="email@dominio.com" /> </br>
+			   
+		 <label for="Data_de_Nascimento"> Data de Nascimento:</label>
+			   <input type="date" required/> </br>
+			   
+               
+			   <select id="motivo" required>
+			        <option value=""> Motivo</option>
+					<option value="vago"> Achei vago os ensinamentos</option>
+					<option value="bugs"> Sofri com bugs ao longo do uso</option>
+					<option value="sugestao"> Quero enviar uma sugestão</option>
+					<option value="hekpprojeto"> Gostaria de ajudar no projeto</option>
+					<option value="outro"> Outro</option> 
+			   </select></br>
+
+			   <label for="image"> Prova:</label>
+			   <input type="file" />			   
+			</br>
+			   <label for="tipo_uso"> Voltaria a usar nosso site? </label>			   			   
+			   <label for="tipo_uso"> <strong>Sim</strong> </label>
+			   <input type="radio" name="tipo_uso" value="Sim" />
+			   <label for="tipo_uso"> <strong>Não</strong> </label>
+			   <input type="radio" name="tipo_uso" value="Não" />
+			   
+			   <br>
+			   
+			
+			   <textarea id="msg" name="msg" placeholder="DEIXE SUA MENSAGEM*" required maxlength="50"></textarea> </br>
+			   
+               <button class="enre" type="submit"> Enviar</button>
+			<button class="enre" type="reset"> Resetar</button>
+
+	
+	  
+	  </form>
+	  <div class="redes_sociais">
+		<a class="redes_sociais" href="https://www.youtube.com/channel/UCUSh-qf2KDbJeDd9brB20Kw/featured" target="_blankl"> <img src="assets/logo_veio3.png" alt="logo" width="45"></a>
+		<a class="redes_sociais"  href="https://www.instagram.com/capsoficial_/" target="_blankl"> <img src="assets/logo_insta1.png" alt="logo" width="40"></a>
+		<a class="redes_sociais" href="formulario.html" target="_blankl"> <img src="assets/logo_zarp1.png" alt="logo" width="40"></a>
+	</div>
+	</div>
+   </body>
+</html>
