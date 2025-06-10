@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome da Sua Empresa de Desenvolvimento</title>
+    <style>
+        /* Basic Reset and Body Styling */
+        body {
+            margin: 0;
+            font-family: sans-serif; /* Or a professional font like Roboto, Open Sans, Lato */
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #2c3e50; /* Dark professional background */
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #3498db; /* Highlight color */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('placeholder_hero_image.jpg') no-repeat center center/cover; /* Replace with a relevant image */
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px; /* Adjust height as needed */
+            margin-top: 60px; /* To account for fixed header */
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db; /* Button color */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #2980b9; /* Darker hover color */
+        }
+
+        /* Sections (General Styling) */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #3498db;
+            margin: 10px auto 0;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px; /* Adjust as needed */
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: #2c3e50;
+        }
+
+        .portfolio-info p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .portfolio-info a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .portfolio-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Us Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .about-content .text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-content img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px; /* Limit image size */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">Capsys</a>
+            <ul>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#portfolio">Projetos</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Soluções de Desenvolvimento de Software Inovadoras</h1>
+            <p>Transformamos suas ideias em realidade digital com tecnologia de ponta.</p>
+            <a href="#contact" class="btn">Fale Conosco</a>
+            <a href="#portfolio" class="btn" style="margin-left: 15px;">Ver Projetos</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Desenvolvimento Web</h3>
+                <p>Criação de websites e aplicações web responsivas e de alta performance.</p>
+            </div>
+            <div class="service-item">
+                <h3>Desenvolvimento Mobile</h3>
+                <p>Criação de aplicativos nativos e híbridos para iOS e Android.</p>
+            </div>
+            <div class="service-item">
+                <h3>Consultoria em TI</h3>
+                <p>Assessoria estratégica para otimizar sua infraestrutura e processos de TI.</p>
+            </div>
+            <div class="service-item">
+                <h3>UI/UX Design</h3>
+                <p>Criação de interfaces intuitivas e experiências de usuário memoráveis.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="portfolio" class="section" style="background-color: #fff;">
+        <h2>Nossos Projetos</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="placeholder_project1.jpg" alt="Projeto 1"> <div class="portfolio-info">
+                    <h3>Nome do Projeto 1</h3>
+                    <p>Breve descrição do projeto e as tecnologias utilizadas.</p>
+                    <a href="#">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="placeholder_project2.jpg" alt="Projeto 2"> <div class="portfolio-info">
+                    <h3>Nome do Projeto 2</h3>
+                    <p>Breve descrição do projeto e as tecnologias utilizadas.</p>
+                    <a href="#">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="placeholder_project3.jpg" alt="Projeto 3"> <div class="portfolio-info">
+                    <h3>Nome do Projeto 3</h3>
+                    <p>Breve descrição do projeto e as tecnologias utilizadas.</p>
+                    <a href="#">Ver Detalhes</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Sobre Nós</h2>
+        <div class="about-content">
+            <div class="text">
+                <p>Somos uma empresa de desenvolvimento apaixonada por criar soluções tecnológicas que impulsionam o sucesso de nossos clientes. Com uma equipe experiente e focada em inovação, entregamos projetos de alta qualidade dentro do prazo e orçamento.</p>
+                <p>Nossa missão é...</p>
+                <p>Nossa visão é...</p>
+                </div>
+            <img src="placeholder_about_image.jpg" alt="Sobre Nós"> </div>
+    </section>
+
+    <section id="contact" class="section" style="background-color: #fff;">
+        <h2>Fale Conosco</h2>
+        <div class="contact-form">
+            <p>Tem um projeto em mente? Entre em contato conosco e vamos transformar sua ideia em realidade.</p>
+            <form action="#" method="post">
+                <div>
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Nome da Sua Empresa. Todos os direitos reservados.</p>
+        </footer>
+
+</body>
+</html>

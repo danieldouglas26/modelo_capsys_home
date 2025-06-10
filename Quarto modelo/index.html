@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Capsys - Soluções de desenvolvimento de software inovadoras para transformar suas ideias em realidade digital com tecnologia de ponta.">
+    <title>Capsys - Soluções em Desenvolvimento</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="container">
+            <a href="#home" class="logo">Capsys</a>
+            
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <ul id="primary-navigation" class="nav-menu" data-visible="false">
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Projetos</a></li>
+                <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <span class="section-subtitle reveal-up">Bem-vindo à Capsys</span>
+                    <h1 class="reveal-up">Transformamos Ideias em Realidade Digital.</h1>
+                    <p class="reveal-up">Soluções criativas e tecnológicas que impulsionam o seu negócio. Explore nosso trabalho e veja como podemos ajudar.</p>
+                    <div class="hero-buttons reveal-up">
+                        <a href="#contact" class="btn btn-primary">Fale Conosco</a>
+                        <a href="#portfolio" class="btn btn-secondary">Ver Projetos</a>
+                    </div>
+                </div>
+                <div class="hero-image reveal-up">
+                    <img src="assets/capsys-logo-semfundo.png" alt="Logo da Capsys com elementos tecnológicos ao fundo">
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header animated-item">
+                    <span class="section-subtitle">O QUE FAZEMOS</span>
+                    <h2 class="section-title">Nossos Serviços</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item animated-item">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>Desenvolvimento Web</h3>
+                        <p>Criação de websites e aplicações web responsivas e de alta performance.</p>
+                    </div>
+                    <div class="service-item animated-item">
+                        <i class="fas fa-mobile-alt service-icon"></i>
+                        <h3>Desenvolvimento Mobile</h3>
+                        <p>Desenvolvemos aplicativos nativos e híbridos para iOS e Android.</p>
+                    </div>
+                    <div class="service-item animated-item">
+                        <i class="fas fa-lightbulb service-icon"></i>
+                        <h3>Consultoria em TI</h3>
+                        <p>Assessoria estratégica para otimizar sua infraestrutura e processos.</p>
+                    </div>
+                    <div class="service-item animated-item">
+                        <i class="fas fa-object-ungroup service-icon"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Criamos interfaces intuitivas e experiências de usuário envolventes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section section-alt-bg">
+            <div class="container">
+                <div class="section-header animated-item">
+                    <span class="section-subtitle">NOSSO TRABALHO</span>
+                    <h2 class="section-title">Projetos em Destaque</h2>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item animated-item">
+                        <img src="assets/1.png" alt="Interface do Gerenciador de Termos">
+                        <div class="portfolio-info">
+                            <h3>Gerenciador de termos</h3>
+                            <p>Plataforma B2B desenvolvida com React, Node.js e PostgreSQL.</p>
+                            <a href="#" class="portfolio-link" aria-label="Ver detalhes do Gerenciador de Termos">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animated-item">
+                        <img src="assets/1.png" alt="Interface do criador de imagens de perfil">
+                        <div class="portfolio-info">
+                            <h3>Criador de Imagens de Perfil</h3>
+                            <p>Aplicativo mobile criado com Flutter e Firebase, com ênfase em UX.</p>
+                            <a href="#" class="portfolio-link" aria-label="Ver detalhes do Criador de Imagens de Perfil">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item animated-item">
+                        <img src="assets/fundo_bolinhas.png" alt="Dashboard de gestão de estoque">
+                        <div class="portfolio-info">
+                            <h3>Gestão de Estoque</h3>
+                            <p>Sistema de BI para análise de dados de vendas, utilizando Python e PowerBI.</p>
+                            <a href="#" class="portfolio-link" aria-label="Ver detalhes da Gestão de Estoque">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                 <div class="section-header animated-item">
+                    <span class="section-subtitle">QUEM SOMOS</span>
+                    <h2 class="section-title">Conheça a Capsys</h2>
+                </div>
+                <div class="about-content">
+                     <div class="about-text animated-item">
+                <p>Na <strong>Capsys</strong>, não apenas criamos software; nós construímos pontes para o futuro digital do seu negócio. Entendemos que cada ideia é única e merece uma solução tecnológica que não só funcione, mas que encante, simplifique e gere resultados reais.</p>
+                <p>Somos uma equipe multidisciplinar de estrategistas, designers e desenvolvedores apaixonados por resolver desafios complexos. Nossa missão é traduzir sua visão em plataformas digitais inteligentes, intuitivas e de alta performance, garantindo que sua empresa não apenas participe do cenário digital, mas se destaque nele.</p>
+                <p><strong>Vamos além do código.</strong> Atuamos como seus parceiros estratégicos, dedicados a impulsionar seu crescimento e a transformar suas metas em realidade.</p>
+            </div>
+                    <div class="about-image animated-item">
+    <img src="assets/capsys-logo-semfundo.png" alt="Logo da Capsys representando tecnologia e inovação">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section themed-section" aria-labelledby="section-title-contato">
+            <div class="container text-center animated-item">
+                <span class="section-kicker">Vamos Conversar?</span>
+                <h2 id="section-title-contato" class="section-title">Pronto para Iniciar Seu Próximo Projeto?</h2>
+                <p class="themed-section-caption">Adoraríamos ouvir sobre suas ideias e como a Capsys pode ajudar a transformá-las em realidade. Entre em contato conosco hoje mesmo!</p>
+                <a href="https://bio.capsys.com.br" target="_blank" rel="noopener noreferrer" class="btn primary-cta cta-large">Fale Conosco</a>
+            </div>
+        </section>
+        </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-title">Capsys</h4>
+                    <p class="footer-tagline">Transformando ideias em realidade digital com criatividade e tecnologia de ponta.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#portfolio">Projetos</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@capsys.com.br">E-mail</a></li>
+                        <li><a href="https://wa.me/5562996590547" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/danieldouglas23/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/danieldouglas26" aria-label="Github"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/capsoficial_/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Capsys. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="script.js"></script>
+</body>
+</html>

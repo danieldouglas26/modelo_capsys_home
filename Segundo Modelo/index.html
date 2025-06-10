@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsys | Soluções Inovadoras em Tecnologia e Design</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="icon" type="image/x-icon" href="assets/capsys-favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +17,12 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="index.html" class="logo-link" aria-label="Página inicial da Capsys">
-                <img class="logo-image" src="assets/capsys-logo.png" alt="Logo Capsys">
+                <span class="site-title">Capsys</span>
             </a>
             <nav class="main-navigation" aria-label="Navegação principal">
                 <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-menu">
-                    <span class="menu-toggle-icon"></span> </button>
+                    <span class="menu-toggle-icon"></span>
+                </button>
                 <ul id="primary-menu" class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
@@ -33,15 +35,17 @@
     </header>
 
     <section class="hero-section" id="home" aria-labelledby="hero-title">
-        <div class="hero-background-shape"></div> <div class="container hero-content">
+        <div class="hero-background-shape"></div>
+        <div class="container hero-content">
             <div class="hero-text">
                 <span class="hero-kicker">Bem-vindo à Capsys</span>
                 <h1 id="hero-title">Transformamos Ideias em Realidade Digital.</h1>
                 <p class="hero-subtitle">Soluções criativas e tecnológicas que impulsionam o seu negócio. Explore nosso trabalho e veja como podemos ajudar.</p>
                 <a href="#portfolio" class="cta-button primary-cta">Veja Nossos Projetos</a>
-                <a href="#contato" class="cta-button secondary-cta">Fale Conosco</a> </div>
+                <a href="#contato" class="cta-button secondary-cta">Fale Conosco</a>
+            </div>
             <div class="hero-image-container">
-                <img src="assets/capsys-hero-illustration.svg" alt="Ilustração abstrata de tecnologia e inovação" class="hero-image">
+                <img src="assets/capsys-logo-semfundo.png" alt="Ilustração abstrata de tecnologia e inovação" class="hero-image">
             </div>
         </div>
     </section>
@@ -72,22 +76,22 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="assets/icon-web-dev.svg" alt="Ícone Desenvolvimento Web" class="service-icon">
+                        <i class="fas fa-globe service-icon"></i>
                         <h3>Desenvolvimento Web</h3>
                         <p>Criação de sites e plataformas web responsivas, performáticas e otimizadas para SEO.</p>
                     </div>
                     <div class="service-card">
-                        <img src="assets/icon-ui-ux.svg" alt="Ícone Design UI/UX" class="service-icon">
+                        <i class="fas fa-paint-brush service-icon"></i>
                         <h3>Design UI/UX</h3>
                         <p>Interfaces intuitivas e experiências de usuário memoráveis que encantam e convertem.</p>
                     </div>
                     <div class="service-card">
-                        <img src="assets/icon-mobile-dev.svg" alt="Ícone Desenvolvimento Mobile" class="service-icon">
+                        <i class="fas fa-mobile-alt service-icon"></i>
                         <h3>Aplicativos Mobile</h3>
                         <p>Desenvolvimento de aplicativos nativos e híbridos para iOS e Android, focados na performance.</p>
                     </div>
                     <div class="service-card">
-                        <img src="assets/icon-consulting.svg" alt="Ícone Consultoria Digital" class="service-icon">
+                        <i class="fas fa-lightbulb service-icon"></i>
                         <h3>Consultoria Digital</h3>
                         <p>Estratégias digitais e consultoria tecnológica para otimizar seus processos e resultados.</p>
                     </div>
@@ -105,7 +109,7 @@
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
                         <a href="#" class="portfolio-link" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/portfolio-project-1.jpg" alt="Nome do Projeto 1" class="portfolio-image">
+                            <img src="assets/1.png" alt="Nome do Projeto 1" class="portfolio-image">
                             <div class="portfolio-overlay">
                                 <h3>Nome do Projeto 1</h3>
                                 <p>Plataforma e-commerce B2B desenvolvida com React e Node.js.</p>
@@ -115,7 +119,7 @@
                     </div>
                     <div class="portfolio-item">
                         <a href="#" class="portfolio-link">
-                            <img src="assets/portfolio-project-2.jpg" alt="Nome do Projeto 2" class="portfolio-image">
+                            <img src="assets/2.png" alt="Nome do Projeto 2" class="portfolio-image">
                             <div class="portfolio-overlay">
                                 <h3>Nome do Projeto 2</h3>
                                 <p>Aplicativo mobile para gestão de finanças pessoais.</p>
@@ -125,7 +129,7 @@
                     </div>
                     <div class="portfolio-item">
                         <a href="#" class="portfolio-link">
-                            <img src="assets/portfolio-project-3.jpg" alt="Nome do Projeto 3" class="portfolio-image">
+                            <img src="assets/fundo_bolinhas.png" alt="Nome do Projeto 3" class="portfolio-image">
                             <div class="portfolio-overlay">
                                 <h3>Nome do Projeto 3</h3>
                                 <p>Sistema de BI para análise de dados de vendas.</p>
@@ -133,9 +137,10 @@
                             </div>
                         </a>
                     </div>
-                    </div>
-                    <div class="text-center" style="margin-top: 40px;"> <a href="#" class="cta-button secondary-cta">Ver Todos os Projetos</a>
-                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#" class="cta-button secondary-cta">Ver Todos os Projetos</a>
+                </div>
             </div>
         </section>
 
@@ -170,9 +175,9 @@
                 <p>Email: <a href="mailto:contato@capsys.com.br">contato@capsys.com.br</a></p>
                 <p>Telefone: <a href="tel:+5562000000000">(62) 00000-0000</a></p>
                 <div class="social-icons">
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Capsys"><img src="assets/icon-linkedin.svg" alt="LinkedIn"></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Capsys"><img src="assets/icon-instagram.svg" alt="Instagram"></a>
-                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Capsys"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Capsys"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -182,6 +187,6 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

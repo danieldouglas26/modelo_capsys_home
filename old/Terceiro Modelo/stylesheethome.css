@@ -1,0 +1,342 @@
+html {
+	font-size: 12px;
+	font-family: 'open_sansregular', roboto, Arial, 'sans-serif';
+}
+
+header {
+	width: 100%;
+	background-image: url("assets/background3.png");
+	float: left;
+	transition: 0.5s;
+
+}
+
+nav {
+	text-align: center;
+	background-color: #800000;
+	
+	font-style: italic;
+	color: white;
+	width: 100%;
+	margin-bottom: -6px;
+
+
+
+
+
+}
+
+main {
+	width: 100%;
+	text-align: center;
+	float: left;
+	background-color: #FFFFF0;
+}
+
+aside {
+	padding: 0px;
+}
+
+footer {
+	width: 100%;
+	background-color: black;
+	background-size: cover;
+	float: left;
+}
+
+ul {
+	display: flex;
+	justify-content: left;
+	list-style-type: none;
+	align-items: center;
+	color: white;
+
+
+}
+
+li {
+	margin-left: 13px;
+}
+
+li a:hover {
+	color: red;
+	text-decoration: none;
+	transition: 0.1s;
+}
+
+.submenus {
+	padding-top: 16px;
+	font-size: 17px;
+	color: white;
+	margin-bottom: 6px;
+	align-items: center;
+	text-decoration: none;
+}
+
+
+#logomenucaps {
+	margin-left: -20px;
+	margin-top: 4px;
+
+}
+
+#menu_lateral {
+	margin-top: 4px;
+	margin-bottom: -5px;
+	margin-right: 32px;
+	margin-left: 22px;
+}
+.menucaps{
+	width: 75px;
+}
+.menucaps img:hover{
+	width: 50px;
+	opacity:0.6;
+}
+
+.logo {
+	border-radius: 50%;
+	
+}
+
+#logomenula {
+	width: 25px;
+	display: flex;
+	float: left;
+	align-items: flex-end;
+	text-align: left;
+	padding-left: 20px;
+	margin-top: 120px;	
+
+}
+.rodape {
+	text-align: center;
+	color: gray;
+	padding: 13px;
+	font-size: 12.4px;
+
+}
+
+.redes_sociais {
+	padding-left: 17px;
+	padding-bottom: 13px;
+	padding-right: 13px;
+}
+
+.redes_sociais a:hover{
+	opacity:0.7;
+	
+}
+
+.meio {
+	
+	padding-top: 10px;
+	padding-bottom: 90px;
+	padding-left: 110px;
+	padding-right: 110px;
+}
+
+.introdução {
+	padding-top: 90px;
+
+
+}
+.titulosection {
+	font-size: 35px;
+	word-spacing: 1.5px;
+	font-weight: bold;
+	color: rgb(93, 7, 82);
+	
+}
+.titulosection1 {
+	color: red;
+	font-weight: normal;
+}
+.meio p {
+	text-align: center;
+	font-size: 16px;
+	word-break: break-word;
+	word-spacing: 1.5px;
+}
+
+.titulo {
+	float: left;
+	padding: 8px;
+	font-size: 20px;
+	margin-left: 30px;
+	text-align: left;
+}
+
+.oqencontra{
+	width: 100%;
+	text-align: center;
+	float: left;
+	background-image: url("assets/background3.png");
+	background-size: cover;
+	color: white;
+}
+
+.fimpag {
+width:100%;
+text-align: center;
+align-items: center;
+display: flex;
+padding: 60px;
+background-color: #111;
+position: relative;
+}
+.fimpag img:hover{
+	padding:40px;
+	
+}
+.conteudo {
+	text-align: center;
+}
+
+
+#background {
+	margin-bottom: 6px;
+	position: relative;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#background2 {
+	width: 100%;
+}
+
+
+.voltarhome {
+
+	float: left;
+	margin-right: 5px;
+}
+
+#voltarpa {
+	color: rgb(37, 33, 33);
+	font-weight: bold;
+}
+
+.voltarhome a {
+	text-decoration: none;
+	color: rgb(52, 52, 52);
+}
+
+@media screen and (max-width: 600px) {
+	.submenus a {
+		display: none;
+	}
+
+	nav {
+		display: flex;
+		font-size: 9px;
+		margin-bottom: -6.5px;
+	}
+
+	nav h4 {
+
+		font-size: 16px;
+	}
+
+	aside {
+		width: 0px;
+		height: 0px;
+	}
+
+	aside p {
+		display: none;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	#background {
+		display: none;
+	}
+
+	.meio p {
+		text-align: left;
+		text-align: justify;
+		
+padding: 0px;
+	}
+	.fimpag{
+		padding: 6px;
+	}
+.conteudo {
+	text-align: justify;
+	text-align: left;
+	padding: 0px;
+
+}
+
+
+.meio{
+	padding-left: 50px;
+	padding-right: 50px;
+	
+}
+}
+
+@media screen and (max-width: 5568px) and (min-width: 601px) {
+	#background2 {
+		display: none;
+	}
+}
+
+
+
+
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	opacity: 0.98;
+	
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 20px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.2s;
+	
+}
+
+.sidenav a:hover {
+	color: red;
+	font-size: 24px;
+	
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+.sidenav .closebtn:hover{
+	font-size: 35px;
+}
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+
+	.sidenav a {
+		font-size: 18px;
+	}
+}

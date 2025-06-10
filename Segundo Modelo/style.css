@@ -1,21 +1,21 @@
 /* === ROOT VARIABLES & BASIC RESET - DARK THEME === */
 :root {
     /* Paleta Escura Consolidada */
-    --primary-bg: #1A1A1D;          /* Fundo principal muito escuro, quase preto */
-    --secondary-bg: #2C2C31;        /* Fundo para seções/cards, um pouco mais claro */
-    --tertiary-bg: #4A4A52;         /* Um cinza escuro para elementos de interface ou bordas */
+    --primary-bg: #1A1A1D;             /* Fundo principal muito escuro, quase preto */
+    --secondary-bg: #2C2C31;           /* Fundo para seções/cards, um pouco mais claro */
+    --tertiary-bg: #4A4A52;            /* Um cinza escuro para elementos de interface ou bordas */
 
-    --primary-text: #E0E0E0;        /* Texto principal claro (cinza claro) */
-    --secondary-text: #B0B0B0;      /* Texto secundário/muted (cinza mais escuro) */
-    --headings-text: #FFFFFF;       /* Texto dos cabeçalhos (branco) */
+    --primary-text: #E0E0E0;           /* Texto principal claro (cinza claro) */
+    --secondary-text: #B0B0B0;         /* Texto secundário/muted (cinza mais escuro) */
+    --headings-text: #FFFFFF;          /* Texto dos cabeçalhos (branco) */
 
-    --accent-primary: #61DAFB;      /* Azul ciano vibrante para destaque */
-    --accent-primary-darker: #4FA8C4;/* Tom mais escuro do azul para hover */
+    --accent-primary: #61DAFB;         /* Azul ciano vibrante para destaque */
+    --accent-primary-darker: #4FA8C4;  /* Tom mais escuro do azul para hover */
 
-    --accent-secondary: #BB86FC;    /* Roxo/Lilás para outro destaque */
+    --accent-secondary: #BB86FC;      /* Roxo/Lilás para outro destaque */
     --accent-secondary-darker: #9E6EDD;
 
-    --border-color: #55555C;        /* Cor para bordas sutis */
+    --border-color: #55555C;           /* Cor para bordas sutis */
     --focus-ring-color: rgba(97, 218, 251, 0.4); /* Anel de foco para o accent-primary */
 
     /* Tipografia */
@@ -32,6 +32,8 @@
     --box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     --box-shadow-hover: 0 6px 16px rgba(0,0,0,0.4);
     --transition-speed: 0.3s;
+    --animation-duration: 0.8s; /* Duração padrão para animações */
+    --animation-delay-base: 0.1s; /* Atraso base para encadeamento de animações */
 }
 
 *,
@@ -126,14 +128,25 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     width: 100%;
 }
 
-.logo-link .logo-image { /* Antiga .logo */
-    height: calc(var(--header-height) * 0.65); /* Logo proporcional à altura do header */
-    width: auto;
+/* Estilo para o nome Capsys no cabeçalho */
+.logo-link .site-title {
+    font-family: var(--font-headings); /* Usar a fonte dos cabeçalhos */
+    font-size: 2.2rem; /* Tamanho da fonte, ajuste conforme preferir */
+    font-weight: 700; /* Negrito */
+    color: var(--headings-text); /* Cor branca, como os outros cabeçalhos */
+    letter-spacing: -1px; /* Um pequeno ajuste para o espaçamento entre letras */
+    line-height: 1; /* Para garantir que o texto não ocupe muito espaço vertical */
+    transition: color var(--transition-speed) ease; /* Transição de cor ao passar o mouse */
 }
-.logo-link:focus-visible { /* Remover outline padrão do link da logo se a imagem já indica foco */
-    outline: none;
-    box-shadow: 0 0 0 3px var(--focus-ring-color);
-    border-radius: var(--border-radius);
+
+.logo-link:hover .site-title,
+.logo-link:focus-visible .site-title {
+    color: var(--accent-primary); /* Mudar para a cor de destaque no hover/focus */
+}
+
+/* Remover o estilo da imagem da logo, já que agora é texto */
+.logo-link .logo-image {
+    display: none; /* Esconde a imagem da logo */
 }
 
 
@@ -263,6 +276,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 .hero-text {
     flex: 1 1 55%; /* Permite que o texto ocupe mais espaço */
     max-width: 600px;
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp var(--animation-duration) ease-out forwards;
+    animation-delay: var(--animation-delay-base);
 }
 
 .hero-kicker {
@@ -273,6 +291,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: calc(var(--spacing-unit) * 0.75);
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp var(--animation-duration) ease-out forwards;
+    animation-delay: calc(var(--animation-delay-base) * 2);
 }
 
 .hero-section h1#hero-title { /* Antigo .hero h1 */
@@ -282,6 +305,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     line-height: 1.2;
     font-weight: 700;
     color: var(--headings-text);
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp var(--animation-duration) ease-out forwards;
+    animation-delay: calc(var(--animation-delay-base) * 3);
 }
 
 .hero-subtitle { /* Antigo .hero p */
@@ -290,6 +318,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     color: var(--primary-text);
     max-width: 550px; /* Para não ficar muito largo */
     line-height: 1.6;
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp var(--animation-duration) ease-out forwards;
+    animation-delay: calc(var(--animation-delay-base) * 4);
 }
 
 .hero-image-container {
@@ -298,6 +331,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Animação */
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+    animation: fadeInSlideRightScale var(--animation-duration) ease-out forwards;
+    animation-delay: calc(var(--animation-delay-base) * 5);
 }
 .hero-image {
     width: 100%;
@@ -305,6 +343,17 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 }
 
 /* Botões CTA */
+.cta-buttons-wrapper { /* Novo wrapper para os botões do hero */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+    gap: var(--spacing-unit); /* Espaçamento entre os botões */
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp var(--animation-duration) ease-out forwards;
+    animation-delay: calc(var(--animation-delay-base) * 6);
+}
+
 .cta-button { /* Antigo .btn */
     display: inline-block;
     padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 1.8); /* 14px 30px */
@@ -326,7 +375,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 .cta-button.primary-cta:focus-visible {
     background-color: var(--accent-primary-darker);
     color: #000000;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02); /* Adiciona leve escala */
     box-shadow: var(--box-shadow);
     outline-color: var(--accent-primary-darker);
 }
@@ -335,23 +384,18 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     background-color: transparent;
     color: var(--accent-primary);
     border: 2px solid var(--accent-primary);
-    margin-left: calc(var(--spacing-unit) * 1); /* 15px */
+    /* margin-left: calc(var(--spacing-unit) * 1); /* Removido para usar gap no wrapper */
 }
 .cta-button.secondary-cta:hover,
 .cta-button.secondary-cta:focus-visible {
     background-color: var(--accent-primary);
     color: #000000;
     border-color: var(--accent-primary);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02); /* Adiciona leve escala */
     outline-color: var(--accent-primary);
 }
-.hero-text .cta-button { /* Margem entre botões no hero se houver mais de um */
-    margin-right: var(--spacing-unit);
-    margin-bottom: var(--spacing-unit); /* Para quebra de linha */
-}
-.hero-text .cta-button:last-child {
-    margin-right: 0;
-}
+/* Removido: .hero-text .cta-button para usar o wrapper e gap */
+/* Removido: .hero-text .cta-button:last-child */
 
 .cta-button.cta-large {
     padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.5);
@@ -367,6 +411,15 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 .content-section { /* Antigo .section */
     padding-top: var(--section-padding-y);
     padding-bottom: var(--section-padding-y);
+    /* Animação para seções */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.is-visible { /* Classe adicionada via JS quando a seção entra na viewport */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .content-section.alt-background { /* Antigo .section-alt-bg */
@@ -449,13 +502,22 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center; /* Para centralizar ícone e texto */
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
     border: 1px solid var(--border-color);
+    /* Animação inicial */
+    opacity: 0;
+    transform: translateY(30px);
 }
+.service-card.is-visible { /* Adicionado via JS quando a seção entra na viewport */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
 
 .service-card:hover,
 .service-card:focus-within {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02); /* Adiciona leve escala */
     box-shadow: var(--box-shadow-hover);
     border-color: var(--accent-primary);
 }
@@ -500,10 +562,19 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     overflow: hidden; /* Para o overlay não vazar e a imagem respeitar o border-radius */
     box-shadow: var(--box-shadow);
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    /* Animação inicial */
+    opacity: 0;
+    transform: translateY(30px);
 }
+.portfolio-item.is-visible { /* Adicionado via JS quando a seção entra na viewport */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
 .portfolio-item:hover,
 .portfolio-item:focus-within { /* Quando o link dentro tem foco */
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02); /* Adiciona leve escala */
     box-shadow: var(--box-shadow-hover);
 }
 .portfolio-item:focus-within .portfolio-overlay { /* Mostrar overlay no foco também */
@@ -719,6 +790,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
         margin-top: calc(var(--spacing-unit) * 2);
         max-width: 400px; /* Imagem um pouco menor */
     }
+
+    /* Ajuste para botões em telas menores que 992px, mas ainda não mobile total */
+    .cta-buttons-wrapper {
+        justify-content: center; /* Centraliza os botões */
+    }
 }
 
 
@@ -728,9 +804,21 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
         --section-padding-y: 60px;
     }
 
+.logo-link .site-title {
+        font-size: 1.65rem; /* Ajuste este valor conforme o desejado */
+        letter-spacing: -0.5px; /* Pode ajustar o espaçamento se precisar */
+    }
+
+    
+    
     .menu-toggle {
         display: block;
     }
+
+.hero-image-container {
+        display: none; /* Esconde completamente a imagem do hero em mobile */
+    }
+
 
     .main-navigation .nav-menu {
         position: fixed;
@@ -783,15 +871,20 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
         font-size: clamp(0.9rem, 4vw, 1.1rem);
     }
 
-    .hero-text .cta-button { /* Botões do Hero no mobile */
-        display: block;
-        margin: 0 auto var(--spacing-unit) auto;
-        width: 90%;
-        max-width: 300px;
+    /* ALINHAMENTO DOS BOTÕES DO HERO PARA MOBILE - UM ABAIXO DO OUTRO */
+    .cta-buttons-wrapper {
+        flex-direction: column; /* Empilha os botões */
+        align-items: center; /* Centraliza os botões */
     }
-    .hero-text .cta-button.secondary-cta {
-        margin-left: auto;
+    .cta-button {
+        width: 90%; /* Ocupa mais largura */
+        max-width: 300px; /* Limite de largura */
+        margin: 0 auto; /* Centraliza */
     }
+    .cta-button + .cta-button { /* Espaçamento entre os botões empilhados */
+        margin-top: var(--spacing-unit);
+    }
+
 
     .content-section .section-title {
         font-size: clamp(1.6rem, 6vw, 2.2rem); /* Títulos de seção menores */
@@ -839,5 +932,40 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
     .cta-button.cta-large {
         padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.8);
         font-size: 0.95rem;
+    }
+}
+
+/* === KEYFRAME ANIMATIONS === */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideRightScale {
+    from {
+        opacity: 0;
+        transform: translateX(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes pulseBorder {
+    0% {
+        border-color: var(--border-color);
+    }
+    50% {
+        border-color: var(--accent-primary);
+    }
+    100% {
+        border-color: var(--border-color);
     }
 }

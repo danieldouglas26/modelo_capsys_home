@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Capsys - Soluções de desenvolvimento de software inovadoras para transformar suas ideias em realidade digital com tecnologia de ponta.">
     <title>Capsys - Soluções em Desenvolvimento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +15,7 @@
         <nav class="container">
             <a href="#home" class="logo">Capsys</a>
             <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
-                <span class="hamburger"></span>
+                <i class="fas fa-bars"></i>
             </button>
             <ul id="primary-navigation" data-visible="false">
                 <li><a href="#services">Serviços</a></li>
@@ -26,24 +27,17 @@
     </header>
 
     <main>
-        <!--section class="hero" id="home">
-            <div class="hero-content">
-                <div class="hero-title-group">
-                    <img src="assets/logo caps.png" alt="Logo da Sua Empresa" class="hero-logo">
-                    <h1>Um surto coletivo ou uma ideia inovadora?</h1>
-                </div>
-                <p>Transformamos suas ideias em realidade digital com tecnologia de ponta.</p>
-                <a href="#contact" class="btn">Fale Conosco</a>
-                <a href="#portfolio" class="btn btn-secondary">Ver Projetos</a>
-            </div>
-        </section-->
         <section class="hero" id="home">
-
-            <div class="hero-content">
-                <h1>Um surto coletivo ou uma ideia inovadora?</h1>
-                <p>Transformamos suas ideias em realidade digital com tecnologia de ponta.</p>
-                <a href="#contact" class="btn">Fale Conosco</a>
-                <a href="#portfolio" class="btn btn-secondary">Ver Projetos</a>
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <h1>Transformamos Ideias em Realidade Digital.</h1>
+                    <p>Soluções criativas e tecnológicas que impulsionam o seu negócio. Explore nosso trabalho e veja como podemos ajudar.</p>
+                    <a href="#contact" class="btn">Fale Conosco</a>
+                    <a href="#portfolio" class="btn btn-secondary">Ver Projetos</a>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/capsys-logo-semfundo.png" alt="Ilustração tecnológica representando inovação">
+                </div>
             </div>
         </section>
 
@@ -52,18 +46,22 @@
                 <h2>Nossos Serviços</h2>
                 <div class="services-grid">
                     <div class="service-item">
+                        <i class="fas fa-code service-icon"></i>
                         <h3>Desenvolvimento Web</h3>
                         <p>Criação de websites e aplicações web responsivas e de alta performance, utilizando as mais recentes tecnologias do mercado.</p>
                     </div>
                     <div class="service-item">
+                        <i class="fas fa-mobile-alt service-icon"></i>
                         <h3>Desenvolvimento Mobile</h3>
                         <p>Desenvolvemos aplicativos nativos e híbridos para iOS e Android, focados na experiência do usuário e performance.</p>
                     </div>
                     <div class="service-item">
+                        <i class="fas fa-lightbulb service-icon"></i>
                         <h3>Consultoria em TI</h3>
                         <p>Oferecemos assessoria estratégica para otimizar sua infraestrutura tecnológica e processos de desenvolvimento.</p>
                     </div>
                     <div class="service-item">
+                        <i class="fas fa-object-ungroup service-icon"></i>
                         <h3>UI/UX Design</h3>
                         <p>Criamos interfaces intuitivas e experiências de usuário envolventes que encantam e convertem.</p>
                     </div>
@@ -76,25 +74,25 @@
                 <h2>Nossos Projetos</h2>
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
-                        <img src="assets/fundo_bolinhas.png" alt="Interface do Projeto Alfa">
+                        <img src="assets/1.png" alt="Interface do Projeto Alfa">
                         <div class="portfolio-info">
-                            <h3>Nome do Projeto Alfa</h3>
+                            <h3>Criador de Crachás</h3>
                             <p>Plataforma e-commerce B2B desenvolvida com React, Node.js e PostgreSQL, focada em usabilidade e escalabilidade.</p>
                             <a href="#" aria-label="Ver detalhes do Projeto Alfa">Ver Detalhes</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x220/3498db/fff?text=Projeto+Beta" alt="Aplicativo mobile do Projeto Beta">
+                        <img src="assets/1.png" alt="Aplicativo mobile do Projeto Beta">
                         <div class="portfolio-info">
-                            <h3>Nome do Projeto Beta</h3>
+                            <h3>Criador de imagens de perfil</h3>
                             <p>Aplicativo mobile para gestão de finanças pessoais, criado com Flutter e Firebase, com ênfase em segurança de dados.</p>
                             <a href="#" aria-label="Ver detalhes do Projeto Beta">Ver Detalhes</a>
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://via.placeholder.com/400x220/e74c3c/fff?text=Projeto+Gama" alt="Dashboard do Projeto Gama">
+                        <img src="assets/fundo_bolinhas.png" alt="Dashboard do Projeto Gama">
                         <div class="portfolio-info">
-                            <h3>Nome do Projeto Gama</h3>
+                            <h3>Aplicativo de gestão de estoque</h3>
                             <p>Sistema de BI para análise de dados de vendas, utilizando Python (Django) e PowerBI para visualizações interativas.</p>
                             <a href="#" aria-label="Ver detalhes do Projeto Gama">Ver Detalhes</a>
                         </div>
@@ -150,7 +148,7 @@
     <footer>
         <div class="container">
             <p>&copy; <span id="current-year">2023</span> Capsys. Todos os direitos reservados.</p>
-            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

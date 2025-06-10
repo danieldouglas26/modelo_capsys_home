@@ -1,7 +1,6 @@
 /* === ROOT VARIABLES & BASIC RESET - DARK THEME === */
 :root {
-
-    --primary-bg-solid: #1A1A1D;      /* Cor sólida que será usada como fallback ou para seções */
+    --primary-bg-solid: #1A1A1D; /* Cor sólida que será usada como fallback ou para seções */
     --secondary-bg: #2C2C31;
     /* ... (restante das suas variáveis) ... */
 
@@ -10,21 +9,21 @@
 
     
     /* Paleta Escura */
-    --primary-bg: #1A1A1D;          /* Fundo principal muito escuro, quase preto */
-    --secondary-bg: #2C2C31;        /* Fundo para seções/cards, um pouco mais claro */
-    --tertiary-bg: #4A4A52;         /* Um cinza escuro para elementos de interface ou bordas */
+    --primary-bg: #1A1A1D;           /* Fundo principal muito escuro, quase preto */
+    --secondary-bg: #2C2C31;         /* Fundo para seções/cards, um pouco mais claro */
+    --tertiary-bg: #4A4A52;          /* Um cinza escuro para elementos de interface ou bordas */
 
-    --primary-text: #E0E0E0;        /* Texto principal claro (cinza claro) */
-    --secondary-text: #B0B0B0;      /* Texto secundário/muted (cinza mais escuro) */
-    --headings-text: #FFFFFF;       /* Texto dos cabeçalhos (branco) */
+    --primary-text: #E0E0E0;         /* Texto principal claro (cinza claro) */
+    --secondary-text: #B0B0B0;       /* Texto secundário/muted (cinza mais escuro) */
+    --headings-text: #FFFFFF;        /* Texto dos cabeçalhos (branco) */
 
-    --accent-primary: #61DAFB;      /* Azul ciano vibrante para destaque (estilo React/tech) */
+    --accent-primary: #61DAFB;       /* Azul ciano vibrante para destaque (estilo React/tech) */
     --accent-primary-darker: #4FA8C4;/* Tom mais escuro do azul para hover */
 
-    --accent-secondary: #BB86FC;    /* Roxo/Lilás para outro destaque (Material Design Dark Theme) */
+    --accent-secondary: #BB86FC;     /* Roxo/Lilás para outro destaque (Material Design Dark Theme) */
     --accent-secondary-darker: #9E6EDD;
 
-    --border-color: #55555C;        /* Cor para bordas sutis */
+    --border-color: #55555C;         /* Cor para bordas sutis */
     --focus-ring-color: rgba(97, 218, 251, 0.4); /* Anel de foco para o accent-primary */
 
     /* Variáveis de Estrutura e Tipografia (podem permanecer as mesmas ou ajustar) */
@@ -55,9 +54,6 @@ html {
 }
 
 body {
-
-    
-
     font-family: var(--font-primary);
     line-height: 1.7;
     color: var(--primary-text); /* Texto principal claro */
@@ -102,7 +98,7 @@ button:focus, input:focus, textarea:focus, a:focus {
     padding-right: var(--container-padding-x);
 }
 
-/* === HEADER AND NAVIGATION === */
+/* --- HEADER AND NAVIGATION --- */
 header {
     background-image: url('assets/background3.png');
     color: var(--headings-text);
@@ -115,7 +111,11 @@ header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
+    /* Animation for header */
+    animation: slideDown 0.6s ease-out forwards;
 }
+
+
 
 nav.container {
     display: flex;
@@ -128,6 +128,10 @@ nav.container {
     font-size: clamp(1.5rem, 4vw, 1.8rem);
     font-weight: bold;
     color: var(--headings-text);
+    /* Animation for logo */
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
 }
 .logo:hover, .logo:focus {
     color: var(--accent-primary);
@@ -141,7 +145,16 @@ nav ul {
 
 nav ul li {
     margin-left: 25px;
+    /* Animation for nav links */
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
 }
+nav ul li:nth-child(1) { animation-delay: 0.6s; }
+nav ul li:nth-child(2) { animation-delay: 0.7s; }
+nav ul li:nth-child(3) { animation-delay: 0.8s; }
+nav ul li:nth-child(4) { animation-delay: 0.9s; }
+nav ul li:nth-child(5) { animation-delay: 1.0s; }
+
 
 nav ul li a {
     color: var(--headings-text);
@@ -160,11 +173,15 @@ nav ul li a::after {
     transition: width var(--transition-speed) ease;
 }
 nav ul li a:hover::after,
-nav ul li a:focus::after {
+nav ul li a:focus::after,
+/* Novo: o traço de destaque para a opção ativa */
+nav ul li a.active::after {
     width: 100%;
 }
 nav ul li a:hover,
-nav ul li a:focus {
+nav ul li a:focus,
+/* Novo: a cor de texto para a opção ativa */
+nav ul li a.active {
     color: var(--accent-primary);
     text-decoration: none;
     outline: none;
@@ -220,62 +237,67 @@ nav ul li a:focus {
 }
 
 
-/* === HERO SECTION === */
+/* --- HERO SECTION --- */
 .hero {
-     /* --- FUNDO ESPECÍFICO --- */
-    /* Substitua 'CAMINHO_PARA_SUA_IMAGEM.jpg' pelo caminho real da sua imagem */
     background-image: url('assets/background3.png');
-
-    /* Cor de fundo de fallback: será exibida se a imagem não carregar
-       ou antes dela carregar. Também é útil se sua imagem tiver transparências. */
-    background-color: var(--primary-bg-solid);
-
-    /* Ajusta o tamanho da imagem de fundo:
-       'cover': Redimensiona a imagem para cobrir todo o container, mantendo a proporção.
-                Pode cortar partes da imagem.
-       'contain': Redimensiona a imagem para que ela caiba completamente no container,
-                  mantendo a proporção. Pode deixar espaços vazios.
-       'auto': Tamanho original da imagem.
-       Você também pode usar valores como '100% 100%' ou dimensões em px.
-    */
+    background-color: #000; /* fallback escuro */
     background-size: cover;
-
-    /* Define se a imagem de fundo se repete:
-       'no-repeat': A imagem não se repete.
-       'repeat': A imagem se repete horizontal e verticalmente (padrão).
-       'repeat-x': Repete apenas horizontalmente.
-       'repeat-y': Repete apenas verticalmente.
-    */
-    background-repeat: no-repeat;
-
-    /* Define a posição inicial da imagem de fundo.
-       Valores comuns: 'center center', 'top left', 'bottom right', etc.
-       Ou use valores em px ou %.
-    */
     background-position: center center;
-
-    /* Define se a imagem de fundo rola com o conteúdo ou fica fixa:
-       'scroll': A imagem rola com a página (padrão).
-       'fixed': A imagem fica fixa no viewport, criando um efeito parallax
-                quando o conteúdo rola sobre ela.
-    */
-    background-attachment: fixed;
-    /* --- FIM DO FUNDO ESPECÍFICO --- */
-
-    /* Para o overlay, um gradiente mais sutil ou uma cor sólida escura translúcida */
-    /*background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://via.placeholder.com/1920x1080/333333/111111?text=Dark+Hero+Image') no-repeat center center/cover; /* Substitua pela sua imagem escura ou com filtro */
     color: var(--headings-text);
-    text-align: center;
-    padding: calc(var(--header-height) + 60px) var(--container-padding-x) 60px;
-    min-height: 70vh;
+    padding: 80px var(--container-padding-x);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    min-height: 80vh;
+}
+
+.hero-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .hero-content {
-    max-width: 800px;
+    flex: 1 1 50%;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.hero-image {
+    flex: 1 1 40%;
+    text-align: center;
+    /* Animation for hero image */
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+.hero h1, .hero p {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
 }
 
 .hero h1 {
@@ -285,6 +307,8 @@ nav ul li a:focus {
     line-height: 1.2;
     font-weight: 700;
     color: var(--headings-text); /* Garante branco para o H1 */
+        animation-delay: 0.2s;
+
 }
 
 .hero p {
@@ -294,6 +318,77 @@ nav ul li a:focus {
     margin-left: auto;
     margin-right: auto;
     color: var(--primary-text); /* Cinza claro para o parágrafo */
+        animation-delay: 0.4s;
+
+}
+
+.hero .btn {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .btn {
@@ -336,7 +431,7 @@ nav ul li a:focus {
 }
 
 
-/* === SECTIONS (General Styling) === */
+/* --- SECTIONS (General Styling) --- */
 .section {
     padding-top: var(--section-padding-y);
     padding-bottom: var(--section-padding-y);
@@ -357,6 +452,9 @@ nav ul li a:focus {
     color: var(--headings-text); /* Cabeçalhos brancos */
     text-align: center;
     font-weight: 700;
+    /* Animation for section titles */
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
 }
 
 .section h2::after {
@@ -368,7 +466,7 @@ nav ul li a:focus {
     margin: 15px auto 0;
 }
 
-/* === SERVICES SECTION === */
+/* --- SERVICES SECTION --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -383,7 +481,16 @@ nav ul li a:focus {
     text-align: left;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--border-color); /* Borda sutil */
+    /* Animation for service items */
+    opacity: 0;
+    animation: zoomIn 0.8s ease forwards;
 }
+/* Stagger animation for service items */
+.service-item:nth-child(1) { animation-delay: 0.2s; }
+.service-item:nth-child(2) { animation-delay: 0.4s; }
+.service-item:nth-child(3) { animation-delay: 0.6s; }
+.service-item:nth-child(4) { animation-delay: 0.8s; }
+
 
 .service-item:hover,
 .service-item:focus-within {
@@ -405,7 +512,7 @@ nav ul li a:focus {
     color: var(--primary-text); /* Texto do card cinza claro */
 }
 
-/* === PORTFOLIO SECTION === */
+/* --- PORTFOLIO SECTION --- */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -422,7 +529,18 @@ nav ul li a:focus {
     flex-direction: column;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--border-color);
+    /* Animation for portfolio items */
+    opacity: 0;
+    animation: fadeInRight 0.8s ease forwards;
 }
+/* Stagger animation for portfolio items */
+.portfolio-item:nth-child(1) { animation-delay: 0.2s; }
+.portfolio-item:nth-child(2) { animation-delay: 0.4s; }
+.portfolio-item:nth-child(3) { animation-delay: 0.6s; }
+.portfolio-item:nth-child(4) { animation-delay: 0.8s; }
+.portfolio-item:nth-child(5) { animation-delay: 1.0s; }
+.portfolio-item:nth-child(6) { animation-delay: 1.2s; }
+
 .portfolio-item:hover,
 .portfolio-item:focus-within {
     transform: translateY(-8px);
@@ -473,7 +591,7 @@ nav ul li a:focus {
     outline-color: var(--accent-secondary-darker);
 }
 
-/* === ABOUT US SECTION === */
+/* --- ABOUT US SECTION --- */
 .about-content {
     display: flex;
     flex-wrap: wrap;
@@ -485,6 +603,10 @@ nav ul li a:focus {
 .about-content .text {
     flex: 1;
     min-width: 300px;
+    /* Animation for about text */
+    opacity: 0;
+    animation: fadeInLeft 1s ease forwards;
+    animation-delay: 0.2s;
 }
 .about-content .text p {
     margin-bottom: 20px;
@@ -501,9 +623,13 @@ nav ul li a:focus {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     border: 1px solid var(--border-color);
+    /* Animation for about image */
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 0.4s;
 }
 
-/* === CONTACT SECTION === */
+/* --- CONTACT SECTION --- */
 .contact-form-container {
     max-width: 700px;
     margin: 0 auto;
@@ -513,6 +639,10 @@ nav ul li a:focus {
     box-shadow: var(--box-shadow);
     text-align: left;
     border: 1px solid var(--border-color);
+    /* Animation for contact form */
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
 }
 .contact-form-container > p {
     margin-bottom: 30px;
@@ -571,7 +701,7 @@ nav ul li a:focus {
 }
 
 
-/* === FOOTER === */
+/* --- FOOTER --- */
 footer {
     background-color: var(--secondary-bg); /* Footer com fundo secundário */
     color: var(--primary-text);
@@ -579,6 +709,10 @@ footer {
     padding: 40px var(--container-padding-x);
     margin-top: var(--section-padding-y);
     border-top: 1px solid var(--border-color);
+    /* Animation for footer */
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
 }
 
 footer p {
@@ -594,11 +728,14 @@ footer a:hover, footer a:focus {
     outline-color: var(--accent-primary-darker);
 }
 
-/* === RESPONSIVE STYLES === */
+/* --- RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
     :root {
         --header-height: 60px;
         --section-padding-y: 60px;
+    }
+.hero-image {
+        display: none; /* Esconde completamente a imagem do hero em mobile */
     }
 
     .nav-toggle {
@@ -637,6 +774,12 @@ footer a:hover, footer a:focus {
     }
     nav ul li a::after {
         display: none;
+    }
+    /* Novo: Traço para mobile ativo */
+    nav ul li a.active {
+        color: var(--accent-primary);
+        background-color: rgba(97, 218, 251, 0.1); /* Um leve highlight no item ativo no mobile */
+        border-left: 4px solid var(--accent-primary);
     }
 
 

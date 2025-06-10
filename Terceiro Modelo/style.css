@@ -48,6 +48,14 @@
     --box-shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.2); 
     --box-shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
     --glow-effect-soft: 0 0 15px rgba(var(--color-primary-rgb), 0.2); /* Efeito de brilho */
+
+
+    /*Background Bolinas*/
+     --background-image: url('assets/background3.png');
+
+    /* Adicione esta se ainda não existir ou confirme o caminho */
+    --background-dots-opacity: 0.07; /* Opacidade para as bolinhas. Ajuste entre 0.03 e 0.2 para o efeito desejado */
+
 }
 
 /* --- Reset e Estilos Globais --- */
@@ -130,11 +138,7 @@ p { margin-bottom: calc(var(--spacing-unit) * 2); color: var(--color-text-muted)
     box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
     transition: padding var(--transition-duration) var(--transition-timing), background-color var(--transition-duration) var(--transition-timing);
 }
-body.scrolled .site-header {
-    padding: calc(var(--spacing-unit) / 2) 0;
-    background-color: rgba(var(--color-surface), 0.95);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
+
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo-image { height: 45px; transition: transform var(--transition-duration) var(--transition-timing); }
 .logo-link:hover .logo-image { transform: scale(1.05); }
@@ -178,7 +182,10 @@ body.scrolled .site-header {
     padding: var(--section-padding-vertical) 0;
     min-height: 85vh;
     display: flex; align-items: center; position: relative; overflow: hidden;
-    background-color: var(--color-background);
+    background-image: var(--background-image);
+   /* background-color: var(--color-background);*/
+    background-size: cover; background-position: center;
+    color: var(--color-text);
 }
 .hero-background-shape {
     position: absolute; top: -20%; left: -10%; width: 60%; height: 120%;
